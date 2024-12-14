@@ -1,0 +1,15 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: tomtrek-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tomtrek
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./initdb.d/:/docker-entrypoint-initdb.d/
+volumes:
+  db_data:
