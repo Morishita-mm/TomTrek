@@ -10,7 +10,7 @@ public class Finished implements State {
     private Finished() {
     }
 
-    public static State getInstance() {
+    public static State FINISHED() {
         return instance;
     }
 

@@ -9,7 +9,7 @@ public class Reading implements State {
     private Reading() {
     }
 
-    public static State getInstance() {
+    public static State READING() {
         return instance;
     }
 

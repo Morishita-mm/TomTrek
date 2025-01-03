@@ -7,7 +7,7 @@ public class NotBegin implements State {
     private NotBegin() {
     }
 
-    public static State getInstance() {
+    public static State NOT_BEGIN() {
         return instance;
     }
 

@@ -64,26 +64,29 @@ public class BookManagerTest {
 
         // テスト実行
         Book book = bookManager.searchBooksById(1);
-        bookManager.updateStatus(book, ReadingStatus.READING);
+        bookManager.updateStatus(book, Reading.READING());
 
         // 結果の検証
-        Book updatedBook = bookManager.searchBooksById(1);
+        Book updatedBook = bookManager.searchBooksByTitle("Effective Java").get(0);
         assertEquals(ReadingStatus.READING, updatedBook.getReadingStatus());
         assertEquals(LocalDate.parse("2024-01-01"), updatedBook.getBeginReadingDate());
     }
 
     @Test
     void testUpdateStatus_Finished() {
+        bookManager.addBook(Book.createBookReading("Readable code", "Dustin Boswell", "9780596517748", LocalDate.parse("2024-01-01")));
         // 標準入力をモック化
-        String input = "2024-01-01\n2024-01-10\n"; // beginReadingDate と finishedReadingDate の入力
+        String input = "2024-01-10\n"; // beginReadingDate と finishedReadingDate の入力
         System.setIn(new ByteArrayInputStream(input.getBytes()));
 
         // テスト実行
-        Book book = bookManager.searchBooksById(1);
-        bookManager.updateStatus(book, ReadingStatus.FINISHED);
+        Book book = bookManager.searchBooksByTitle("Readable code").get(0);
+        bookManager.updateStatus(book, Finished.FINISHED());
+
+        System.out.println(book);
 
         // 結果の検証
-        Book updatedBook = bookManager.searchBooksById(1);
+        Book updatedBook = bookManager.searchBooksByTitle("Readable code").get(0);
         assertEquals(ReadingStatus.FINISHED, updatedBook.getReadingStatus());
         assertEquals(LocalDate.parse("2024-01-01"), updatedBook.getBeginReadingDate());
         assertEquals(LocalDate.parse("2024-01-10"), updatedBook.getFinishedReadingDate());

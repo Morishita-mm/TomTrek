@@ -31,10 +31,17 @@ public class BookManager {
     public Book searchBooksById(int id) {
         return bookList.stream().filter(book -> book.getId() == id).findFirst().orElse(null);
     }
-    // TODO statusにStateパターンを適用する
-    // TODO state IFを作って、それを実装したnotBegin, reading, finishedを作る
+
     public void updateStatus(Book book, State state) {
         state.updateStatus(book);
-
     }
+
+    public int getBookListSize() {
+        return bookList.size();
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
 }
