@@ -1,5 +1,6 @@
 package com.tomtrek.Book;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class BookManager {
     }
 
     // TODO 本を追加する前に、登録されている本に同じものがないか検査し、あれば例外を投げる
-    public void addBook(Book book) {
+    void addBook(Book book) {
         bookList.add(book);
     }
 
@@ -24,6 +25,24 @@ public class BookManager {
     public void removeBookById(int id) {
         Book book = searchBooksById(id);
         bookList.remove(book);
+    }
+
+    // 本を作成し、登録する(未読、読書中、読了の3パターンにオーバーロード) 
+    public void createBook(String title, String author, String isbn) {
+        Book book = Book.createBookNotBegin(title, author, isbn);
+        addBook(book);
+    }
+
+    public void createBook(String title, String author, String isbn,
+                            LocalDate beginReadingDate) {
+        Book book = Book.createBookReading(title, author, isbn, beginReadingDate);
+        addBook(book);
+    }
+
+    public void createBook(String title, String author, String isbn,
+                            LocalDate beginReadingDate, LocalDate finishReadingDate) {
+        Book book = Book.createBookFinished(title, author, isbn, beginReadingDate, finishReadingDate);
+        addBook(book);
     }
 
     public List<Book> searchBooksByTitle(String title) {

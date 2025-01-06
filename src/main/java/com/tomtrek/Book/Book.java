@@ -60,15 +60,15 @@ public class Book implements Comparable<Book> {
         this.finishedReadingDate = finishedReadingDate;
     }
 
-    public static Book createBookNotBegin(String title, String author, String isbn) {
+    static Book createBookNotBegin(String title, String author, String isbn) {
         return new Book(title, author, isbn, null, null, null, ReadingStatus.NOT_BEGIN);
     }
 
-    public static Book createBookReading(String title, String author, String isbn, LocalDate beginReadingDate) {
+    static Book createBookReading(String title, String author, String isbn, LocalDate beginReadingDate) {
         return new Book(title, author, isbn, null, beginReadingDate, null, ReadingStatus.READING);
     }
 
-    public static Book createBookFinished(String title, String author, String isbn, LocalDate beginReadingDate,
+    static Book createBookFinished(String title, String author, String isbn, LocalDate beginReadingDate,
             LocalDate finishedReadingDate) {
         return new Book(title, author, isbn, null, beginReadingDate, finishedReadingDate, ReadingStatus.FINISHED);
     }

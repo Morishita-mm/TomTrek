@@ -14,5 +14,5 @@ public class Exit implements Menu{
     public void execute() {
         System.out.println("終了します");
     }
-    
+
 }

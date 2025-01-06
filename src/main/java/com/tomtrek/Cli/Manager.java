@@ -6,13 +6,12 @@ public class Manager {
     private final Menu menu;
     private final Scanner scanner = new Scanner(System.in);
 
-    // TODO ファクトリーメソッドパターンを適用して、メニュー選択の入力に応じて適したクラスのインスタンスを返すように変更する
     private Manager() {
         showMenu();
         int choice = scanner.nextInt();
         switch(choice) {
             case 1 -> menu = Regist.getInstance();
-            case 2 -> menu = Show.getInstance();
+            case 2 -> menu = Search.getInstance();
             case 3 -> menu = Update.getInstance();
             case 4 -> menu = Statistics.getInstance();
             case 5 -> menu = Exit.getInstance();
@@ -22,7 +21,12 @@ public class Manager {
     
     public void execute() {
         if (menu != null) {
-            menu.execute();
+            try {
+                menu.execute();
+            } catch (Exception e) {
+                System.out.println("エラーが発生しました");
+                System.out.println("最初からやり直してください");
+            }
         }
     }
 

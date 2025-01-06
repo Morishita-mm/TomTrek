@@ -83,8 +83,6 @@ public class BookManagerTest {
         Book book = bookManager.searchBooksByTitle("Readable code").get(0);
         bookManager.updateStatus(book, Finished.FINISHED());
 
-        System.out.println(book);
-
         // 結果の検証
         Book updatedBook = bookManager.searchBooksByTitle("Readable code").get(0);
         assertEquals(ReadingStatus.FINISHED, updatedBook.getReadingStatus());
