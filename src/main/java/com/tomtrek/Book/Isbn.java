@@ -2,7 +2,7 @@ package com.tomtrek.Book;
 
 import java.util.Random;
 
-public class Isbn {
+class Isbn {
     private final String isbn;
 
     private Isbn(String isbn) {

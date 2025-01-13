@@ -2,7 +2,7 @@ package com.tomtrek.Book;
 
 import java.time.LocalDate;
 
-public class ReadingDate {
+class ReadingDate {
     private final LocalDate date;
     static final ReadingDate NO_DATA = new ReadingDate(LocalDate.of(1900,1,1));
 
