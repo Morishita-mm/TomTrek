@@ -16,7 +16,7 @@ class Book implements Comparable<Book> {
         this.finishReadingDate = finishReadingDate;
         this.status = status;
     }
-
+    // publicだけど基本的にはBookFactoryからインスタンスを作成して欲しい
     public static class Builder {
         private final String title;
         private final String author;
