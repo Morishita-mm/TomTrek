@@ -6,19 +6,21 @@ class Book implements Comparable<Book> {
     private final Isbn isbn;
     private final ReadingDate beginReadingDate;
     private final ReadingDate finishReadingDate;
+    private final BookStatus status;
     
-    Book(String title, String author, Isbn isbn, ReadingDate beginReadingDate, ReadingDate finishReadingDate) {
+    Book(String title, String author, Isbn isbn, ReadingDate beginReadingDate, ReadingDate finishReadingDate, BookStatus status) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.beginReadingDate = beginReadingDate;
         this.finishReadingDate = finishReadingDate;
+        this.status = status;
     }
 
     @Override
     public String toString() {
-        return String.format("title: %s, author: %s, isbn: %s, beginDate: %s, finishDate: %s",
-                                            title, author, isbn, beginReadingDate, finishReadingDate);
+        return String.format("title: %s, author: %s, isbn: %s, beginDate: %s, finishDate: %s, status: %s",
+                                            title, author, isbn, beginReadingDate, finishReadingDate, status);
     }
 
     @Override

@@ -9,8 +9,8 @@ public class StatusTest {
     @Test
     @DisplayName("BookStatusのテスト")
     public void testStatusToString() {
-        assertEquals("NOT BEGIN", new NotBegin().toString());
-        assertEquals("READING", new Reading().toString());
-        assertEquals("FINISH", new Finish().toString());
+        assertEquals("NOT BEGIN", NotBegin.create().toString());
+        assertEquals("READING", Reading.create().toString());
+        assertEquals("FINISH", Finish.create().toString());
     }
 }
