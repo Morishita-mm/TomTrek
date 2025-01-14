@@ -8,13 +8,47 @@ class Book implements Comparable<Book> {
     private final ReadingDate finishReadingDate;
     private final BookStatus status;
     
-    Book(String title, String author, Isbn isbn, ReadingDate beginReadingDate, ReadingDate finishReadingDate, BookStatus status) {
+    private Book(String title, String author, Isbn isbn, ReadingDate beginReadingDate, ReadingDate finishReadingDate, BookStatus status) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
         this.beginReadingDate = beginReadingDate;
         this.finishReadingDate = finishReadingDate;
         this.status = status;
+    }
+
+    public static class Builder {
+        private final String title;
+        private final String author;
+        private final Isbn isbn;
+        private ReadingDate beginReadingDate = ReadingDate.NO_DATA;
+        private ReadingDate finishReadingDate = ReadingDate.NO_DATA;
+        private BookStatus status = NotBegin.create();
+
+        Builder(String title, String author, Isbn isbn) {
+            this.title = title;
+            this.author = author;
+            this.isbn = isbn;
+        }
+
+        Builder setBeginReadingDate(ReadingDate date) {
+            this.beginReadingDate = date;
+            return this;
+        }
+
+        Builder setFinishReadingDate(ReadingDate date) {
+            this.finishReadingDate = date;
+            return this;
+        }
+
+        Builder setStatus(BookStatus status) {
+            this.status = status;
+            return this;
+        }
+
+        Book build() {
+            return new Book(title, author, isbn, beginReadingDate, finishReadingDate, status);
+        }
     }
 
     @Override
