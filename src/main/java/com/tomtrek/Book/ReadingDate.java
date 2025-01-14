@@ -29,6 +29,10 @@ class ReadingDate {
         }
     }
 
+    
+    /** 
+     * @return Stringm データなしの場合は"データがありません"と表示
+     */
     @Override
     public String toString() {
         if (this.equals(NO_DATA)) return "データがありません";

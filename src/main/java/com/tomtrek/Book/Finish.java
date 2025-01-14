@@ -4,6 +4,10 @@ public class Finish implements BookStatus {
     private Finish() {
     }
 
+    
+    /** 
+     * @return Finish
+     */
     static Finish create() {
         return new Finish();
     }

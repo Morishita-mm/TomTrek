@@ -12,6 +12,11 @@ class Isbn {
         this.isbn = isbn;
     }
 
+    
+    /** 
+     * @param isbn
+     * @return boolean
+     */
     private boolean isValidIsbn(String isbn) {
         return isbn != null && isbn.matches("\\d{3}-\\d{1,5}-\\d{1,7}-\\d{1,7}-\\d{1}");
     }

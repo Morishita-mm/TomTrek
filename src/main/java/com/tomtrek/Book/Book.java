@@ -51,6 +51,10 @@ class Book implements Comparable<Book> {
         }
     }
 
+    
+    /** 
+     * @return String
+     */
     @Override
     public String toString() {
         return String.format("title: %s, author: %s, isbn: %s, beginDate: %s, finishDate: %s, status: %s",

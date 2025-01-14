@@ -4,6 +4,10 @@ public class NotBegin implements BookStatus {
     private NotBegin() {
     }
 
+    
+    /** 
+     * @return NotBegin
+     */
     static NotBegin create() {
         return new NotBegin();
     }
